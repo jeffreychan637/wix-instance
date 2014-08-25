@@ -31,3 +31,16 @@ def instance_parser(instance, wix_secret):
             return False
     except Exception:
         return False
+
+def get_instance(instance, wix_secret, check_owner=False):
+    parsed_instance = instance_parser(instance, wix_secret)
+    if parsed_instance:
+        if check_owner:
+            if parsed_instance["permissions"] == "OWNER":
+                return parsed_instance["instanceId"]
+            else:
+                return False
+        else:
+            return parsed_instance["instanceId"]
+    else:
+        return False
