@@ -16,6 +16,9 @@ def instance_parser(instance, wix_secret):
     permission is set to owner), the call is from a valid source and
     the request it came with should be performed. The function returns the
     parsed instance on success and false otherwise.
+
+    This function should only be called if you want the entire parsed instance
+    object rather than just the instance ID.
     """
     try:
         signature, encoded_json = instance.split(".", 2)
