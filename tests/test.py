@@ -3,7 +3,7 @@
 as expected.
 """
 
-from unittest import TestCase
+from unittest import TestCase, main
 import wixinstance
 
 
@@ -33,112 +33,115 @@ class TestGetInstanceID(InstanceTestCase):
         instance = self.real_instance_from_owner
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=True)
-        assertIsInstance(result, str)
+        self.assertIsInstance(result, unicode)
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=False)
-        assertIsInstance(result, str)
+        self.assertIsInstance(result, unicode)
 
     def test_real_instance_visitor(self):
         instance = self.real_instance_from_visitor
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=True)
-        assertFalse(result)
+        self.assertFalse(result)
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=False)
-        assertIsInstance(result, str)
+        self.assertIsInstance(result, unicode)
 
     def test_fake_instance_based_on_real_instance_owner(self):
         instance = self.fake_instance_based_on_real_instance_owner
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=True)
-        assertFalse(result)
+        self.assertFalse(result)
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=False)
-        assertFalse(result)
+        self.assertFalse(result)
 
     def test_fake_instance_based_on_real_instance_visitor(self):
         instance = self.fake_instance_based_on_real_instance_visitor
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=True)
-        assertFalse(result)
+        self.assertFalse(result)
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=False)
-        assertFalse(result)
+        self.assertFalse(result)
 
     def test_real_instance_from_another_app_owner(self):
         instance = self.real_instance_from_another_app_owner
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=True)
-        assertFalse(result)
+        self.assertFalse(result)
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=False)
-        assertFalse(result)
+        self.assertFalse(result)
 
     def test_real_instance_from_another_app_visitor(self):
         instance = self.real_instance_from_another_app_visitor
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=True)
-        assertFalse(result)
+        self.assertFalse(result)
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=False)
-        assertFalse(result)
+        self.assertFalse(result)
 
     def test_random_string_with_dot(self):
         instance = self.random_string_with_dot
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=True)
-        assertFalse(result)
+        self.assertFalse(result)
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=False)
-        assertFalse(result)
+        self.assertFalse(result)
 
     def test_random_string_without_dot(self):
         instance = self.random_string_without_dot
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=True)
-        assertFalse(result)
+        self.assertFalse(result)
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=False)
-        assertFalse(result)
+        self.assertFalse(result)
 
 
 class TestGetInstanceObject(InstanceTestCase):
     def test_real_instance_owner(self):
         instance = self.real_instance_from_owner
         result = wixinstance.instance_parser(self.secret, instance)
-        assertIsInstance(result, dict)
+        self.assertIsInstance(result, dict)
 
     def test_real_instance_visitor(self):
         instance = self.real_instance_from_visitor
         result = wixinstance.instance_parser(self.secret, instance)
-        assertIsInstance(result, dict)
+        self.assertIsInstance(result, dict)
 
     def test_fake_instance_based_on_real_instance_owner(self):
         instance = self.fake_instance_based_on_real_instance_owner
         result = wixinstance.instance_parser(self.secret, instance)
-        assertFalse(result)
+        self.assertFalse(result)
 
     def test_fake_instance_based_on_real_instance_visitor(self):
         instance = self.fake_instance_based_on_real_instance_visitor
         result = wixinstance.instance_parser(self.secret, instance)
-        assertFalse(result)
+        self.assertFalse(result)
 
     def test_real_instance_from_another_app_owner(self):
         instance = self.real_instance_from_another_app_owner
         result = wixinstance.instance_parser(self.secret, instance)
-        assertFalse(result)
+        self.assertFalse(result)
 
     def test_real_instance_from_another_app_visitor(self):
         instance = self.real_instance_from_another_app_visitor
         result = wixinstance.instance_parser(self.secret, instance)
-        assertFalse(result)
+        self.assertFalse(result)
 
     def test_random_string_with_dot(self):
         instance = self.random_string_with_dot
         result = wixinstance.instance_parser(self.secret, instance)
-        assertFalse(result)
+        self.assertFalse(result)
 
     def test_random_string_without_dot(self):
         instance = self.random_string_without_dot
         result = wixinstance.instance_parser(self.secret, instance)
-        assertFalse(result)
+        self.assertFalse(result)
+
+if __name__ == '__main__':
+    main()
