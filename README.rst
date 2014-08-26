@@ -15,6 +15,16 @@ instance actually came from Wix to guarentee that the request is valid.
 .. _Wix Instance: http://dev.wix.com/docs/display/DRAF/Using+the+Signed+App+Instance
 .. _Wix: http://www.wix.com/
 
+Installation
+============
+
+Install via `pip`.
+
+.. _pip: http://pip.readthedocs.org/en/latest/index.html
+
+::
+    pip install wixinstance
+
 Usage
 =====
 
@@ -59,3 +69,13 @@ instance is returned as a dictionary. The keys to the dictionary are equivalent
 to the Instance properties in the `Wix Documentation`.
 
 .. _Wix Documentation: http://dev.wix.com/docs/display/DRAF/Using+the+Signed+App+Instance
+
+Support
+=======
+
+File issues with this package `here`.
+
+Feel free to contribute to this package by `making a pull request on Github`.
+
+.. _here: https://github.com/jeffreychan637/wix-instance/issues
+.. _making a pull requst on Github: https://github.com/jeffreychan637/wix-instance/pulls
