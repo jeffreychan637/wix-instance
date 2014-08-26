@@ -76,7 +76,7 @@ Support
 
 File issues with this package `here`_.
 
-Feel free to contribute to this package by `making a pull request on Github`_.
+Feel free to contribute to this package by making a `pull request`_ on Github.
 
 .. _here: https://github.com/jeffreychan637/wix-instance/issues
-.. _making a pull requst on Github: https://github.com/jeffreychan637/wix-instance/pulls
+.. _pull request: https://github.com/jeffreychan637/wix-instance/pulls
