@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """This file handles parsing the Wix Instance to verify that the Instance did
 indeed come from Wix.
 
@@ -18,7 +19,7 @@ __author__ = "Jeffrey Chan"
 __version__ = "1.0.0"
 
 
-def get_instance_ID(instance, wix_secret, check_owner=False):
+def get_instance_ID(wix_secret, instance, check_owner=False):
     """This function parses the Wix instance and then returns the instance ID
     from the parsed instance.
 
@@ -42,7 +43,7 @@ def get_instance_ID(instance, wix_secret, check_owner=False):
         return False
 
 
-def instance_parser(instance, wix_secret):
+def instance_parser(wix_secret, instance):
     """This function parses the Wix instance that comes with every call to the
     server. If the parse is successful (the instance is from Wix and the
     permission is set to owner), the call is from a valid source and
