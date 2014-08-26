@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name='WixInstance',
-    version='1.0.0',
+    version='1.0.1',
     author='Jeffrey Chan',
     packages=['wixinstance'],
     url='https://github.com/jeffreychan637/wix-instance',
