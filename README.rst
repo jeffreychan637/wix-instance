@@ -18,8 +18,9 @@ instance actually came from Wix to guarentee that the request is valid.
 Installation
 ============
 
-Install via `pip`_.
+This package is available on `Pypi`_. Install via `pip`_.
 
+.. _Pypi: https://pypi.python.org/pypi
 .. _pip: http://pip.readthedocs.org/en/latest/index.html
 
 ::
