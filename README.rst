@@ -5,7 +5,7 @@ Wix Instance
 .. image:: https://travis-ci.org/jeffreychan637/wix-instance.svg?branch=master
    :target: https://travis-ci.org/jeffreychan637/wix-instance
 
-This is a Python package that parses the `Wix Instance` for `Wix` applications
+This is a Python package that parses the `Wix Instance`_ for `Wix`_ applications
 that use a Python backend. This packages supports Python 2.7. 
 
 In your Wix app, send the unparsed instance along with each request from the
@@ -18,11 +18,12 @@ instance actually came from Wix to guarentee that the request is valid.
 Installation
 ============
 
-Install via `pip`.
+Install via `pip`_.
 
 .. _pip: http://pip.readthedocs.org/en/latest/index.html
 
 ::
+
     pip install wixinstance
 
 Usage
@@ -33,14 +34,14 @@ Usage
     import wixinstance
 
     #Get the instance ID. 
-    instance_ID = wixinstance.get_instance_ID(YOUR_APP_SECRET, INSTANCE, check_owner)
+    **instance_ID = wixinstance.get_instance_ID(YOUR_APP_SECRET, INSTANCE, check_owner)**
     if instance_ID:
         #process the request because it is valid
     else:
         #reject the request because it is invalid
 
     #Get the entire parsed instance object
-    parsed_instance = wixinstance.instance_parser(YOUR_APP_SECRET, INSTANCE)
+    **parsed_instance = wixinstance.instance_parser(YOUR_APP_SECRET, INSTANCE)**
     if parsed_instance:
         #process the request because it is valid
     else:
