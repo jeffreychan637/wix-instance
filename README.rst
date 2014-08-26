@@ -39,7 +39,7 @@ Usage
 Documentation
 =============
 
-***get_instance_ID***
+** *get_instance_ID* **
 
 Use this function when you need the instance ID of the parsed instance. The
 instance ID is returned as a Unicode string.
