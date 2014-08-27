@@ -8,7 +8,7 @@ Wix Instance
 This is a Python package that parses the `Wix Instance`_ for `Wix`_ applications
 that use a Python backend.
 
-This packages supports **Python 2.7**. Support for other versions of Python
+This package supports **Python 2.7**. Support for other versions of Python
 will be added in the near future. 
 
 In your Wix app, send the unparsed instance along with each request from the
