@@ -6,7 +6,10 @@ Wix Instance
    :target: https://travis-ci.org/jeffreychan637/wix-instance
 
 This is a Python package that parses the `Wix Instance`_ for `Wix`_ applications
-that use a Python backend. This packages supports **Python 2.7**. 
+that use a Python backend.
+
+This packages supports **Python 2.7**. Support for other versions of Python
+will be added in the near future. 
 
 In your Wix app, send the unparsed instance along with each request from the
 client side to your server. On the server, use this package to verify that the
