@@ -1,8 +1,17 @@
 #!/usr/bin/env python
 """This tests the Wix Instance functions to ensure that everything works
 as expected.
+
+To be completely honest, the only way I've been able to run the test file
+locally is by moving this file into the root folder WixInstance and then
+running "python test.py" and then moving it back into the tests folder when
+done. There's a better way to do this for sure, but at the time of this
+writing (Currently trying to update package) I don't remember how I did it
+originally, so I'm leaving this note here to save myself a lot of trouble if
+I ever need to update this package again in the future.
 """
 
+from sys import version_info
 from unittest import TestCase, main
 import wixinstance
 
@@ -17,6 +26,10 @@ class InstanceTestCase(TestCase):
     the first part (before the dot) of the real instances was changed.
     """
     def setUp(self):
+        if version_info[0] >= 3:
+            self.result_type = str
+        else:
+            self.result_type = unicode
         self.secret = "69ce77e6-2ac1-42ee-bf80-736ef3218c9d"
         self.real_instance_from_owner = "ZqQSCUe4Kk6z2EhAbakUNAifGtSTnrogcxySPwz9EM0.eyJpbnN0YW5jZUlkIjoiMTM4ZGVmZDgtNWU0Ni1hNDgyLTk0OGItMTJiMzdjNjZiYmFmIiwic2lnbkRhdGUiOiIyMDE0LTA4LTI2VDA0OjM5OjMxLjAxMC0wNTowMCIsInVpZCI6IjU0NjgzNWU1LWYyMzQtNDg3NC05NGQxLTcyMmJhZDI2YzY4OSIsInBlcm1pc3Npb25zIjoiT1dORVIiLCJpcEFuZFBvcnQiOiIxMDguMjI1LjE4OS4xNy82MzM0NiIsInZlbmRvclByb2R1Y3RJZCI6bnVsbCwiZGVtb01vZGUiOmZhbHNlfQ"
         self.real_instance_from_visitor = "dF6lBbHgD6AH8BGJLuJ2Pb4jgAOlBG7xC7EP-kPzqMA.eyJpbnN0YW5jZUlkIjoiMTM4ZGVmZDgtNWU0Ni1hNDgyLTk0OGItMTJiMzdjNjZiYmFmIiwic2lnbkRhdGUiOiIyMDE0LTA4LTI2VDA0OjQ4OjE1Ljc2Ni0wNTowMCIsInVpZCI6bnVsbCwicGVybWlzc2lvbnMiOm51bGwsImlwQW5kUG9ydCI6IjEwOC4yMjUuMTg5LjE3LzY0MDU3IiwidmVuZG9yUHJvZHVjdElkIjpudWxsLCJkZW1vTW9kZSI6ZmFsc2V9"
@@ -33,10 +46,10 @@ class TestGetInstanceID(InstanceTestCase):
         instance = self.real_instance_from_owner
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=True)
-        self.assertIsInstance(result, unicode)
+        self.assertIsInstance(result, self.result_type)
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=False)
-        self.assertIsInstance(result, unicode)
+        self.assertIsInstance(result, self.result_type)
 
     def test_real_instance_visitor(self):
         instance = self.real_instance_from_visitor
@@ -45,7 +58,7 @@ class TestGetInstanceID(InstanceTestCase):
         self.assertFalse(result)
         result = wixinstance.get_instance_ID(self.secret, instance,
                                              check_owner=False)
-        self.assertIsInstance(result, unicode)
+        self.assertIsInstance(result, self.result_type)
 
     def test_fake_instance_based_on_real_instance_owner(self):
         instance = self.fake_instance_based_on_real_instance_owner
