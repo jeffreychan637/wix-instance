@@ -59,11 +59,13 @@ def instance_parser(wix_secret, instance):
                                      ('=' * (4 - (len(encoded_json) % 4))))
         parsed_instance = urlsafe_b64decode(
             encoded_json_with_padding.encode("utf-8"))
-        hmac_hashed = new(wix_secret, msg=encoded_json,
+        hmac_hashed = new(wix_secret.encode("utf-8"), msg=encoded_json.encode("utf-8"),
                           digestmod=sha256).digest()
-        new_signature = urlsafe_b64encode(hmac_hashed).replace("=", "")
+        new_signature_bytes = urlsafe_b64encode(hmac_hashed)
+        new_signature_str = new_signature_bytes.decode("utf-8")
+        new_signature = new_signature_str.replace("=", "")
         if (new_signature == signature):
-            return loads(parsed_instance)
+            return loads(parsed_instance.decode("utf-8"))
         else:
             return False
     except Exception:
