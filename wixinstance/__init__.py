@@ -16,7 +16,7 @@ from hashlib import sha256
 from json import loads
 
 __author__ = "Jeffrey Chan"
-__version__ = "1.0.0"
+__version__ = "2.0.3"
 
 
 def get_instance_ID(wix_secret, instance, check_owner=False):

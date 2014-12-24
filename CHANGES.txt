@@ -11,3 +11,6 @@ v2.0.1, 12.24.2014 -- Updated to correct zip file for package. In v2.0.0, the
 v2.0.2, 12.24.2014 -- Updated package to re-include tests. Renamed test file
                       to tests.py. In v2.0.0, the package was updated to
                       support Python 3.2, 3.3, and 3.4.
+v2.0.3, 12.24.2014 -- Updated version number in main Python file to reflect
+                      current version number of this package. In v2.0.0, the
+                      package was updated to support Python 3.2, 3.3, and 3.4.
