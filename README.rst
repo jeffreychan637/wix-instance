@@ -5,7 +5,7 @@ Wix Instance
 .. image:: https://travis-ci.org/jeffreychan637/wix-instance.svg?branch=master
    :target: https://travis-ci.org/jeffreychan637/wix-instance
 
-This is a Python package that parses the `Wix Instance`_ for `Wix`_ applications
+This is a Python package that parses and verifies the `Wix Instance`_ for `Wix`_ applications
 that use a Python backend.
 
 This package supports **Python 2.7, 3.2, 3.3, 3.4**.
